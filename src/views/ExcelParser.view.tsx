@@ -1,5 +1,5 @@
 import React from "react";
-import { read, XLSX$Utils, utils, WorkBook } from "xlsx";
+import { read, utils, WorkBook } from "xlsx";
 
 const ExcelParserView = () => {
   const [sheetList, setSheetList] = React.useState<string[]>([]);
@@ -8,7 +8,7 @@ const ExcelParserView = () => {
   let results: Record<string, Record<string, Record<string, string>>> = {};
   const localeMap = new Map<string, Record<string, string>>();
 
-  const readUploadFile = (e) => {
+  const readUploadFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     if (e.target.files) {
       const reader = new FileReader();
